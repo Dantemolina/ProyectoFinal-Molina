@@ -1,0 +1,192 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+$lila: #a77dced8;
+$rosa: #ea899a;
+$black: #000000;
+$beige: #f5f5dc;
+$estilos: (
+    color: #f5f5dc,
+    center: center,
+    3rem: 3rem,
+    2rem: 2rem,
+    border: #a77dced8 5px double,
+    border1: #ea899a 10px double,
+    border-radius: 50px,
+);
+@mixin flex-row-center{
+	display:flex;
+	justify-content:space-around;
+}
+@mixin sizes($width, $height, $padding, $margin) {
+    width: $width;
+    height: $height;
+    padding: $padding;
+    margin: $margin;
+}
+$vista:desktop;
+$vista:mobile;
+  body{
+@if $vista == desktop {
+    @media only screen and (min-width:1024px){
+        h1{font-size:3rem;}
+        h2{font-size: 2rem;}
+        h3{font-size:1.8rem;}
+        p{font-size:1.7rem;}
+        }
+    } @else if $vista == mobile {
+        @media only screen and (max-width:767px){
+          h1{font-size:1.6rem}
+          h2{font-size: 1.3rem;}
+          h3{font-size:1rem;}
+          h4{font-size:0.8rem;}
+          p{font-size:0.9rem;}
+          .section-1 { 
+            @include sizes(358px, 80px, 1px, 40px auto);
+        }
+        .productos{
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          grid-template-rows: repeat 1, 2fr;
+          justify-items: center; 
+      }
+      main .imagenes{
+        @include sizes(160px, 190px, 2px, 25px auto);
+      }
+      main .imag-sb{
+        @include sizes( 200px, 280px, 10px, 20px auto);
+      }
+      main .cuadro-sb{
+        @include sizes(320px, 500px, 2px, 30px auto);
+      }
+          div .form-control{
+          @include sizes(200px, 30px, 1px, 2px auto);
+          }
+          .cuadro{
+            @include sizes(330px, 425px, 10px, 25px auto);
+          }
+          .container-fluid{
+          ul {
+              li {
+                padding: 5px;
+                  a {
+                    font-size: 12px;
+                    }
+                  }
+              }
+          }
+        }
+      }
+    background-color: $black;
+  }
+  .logo{
+    width: 100px;
+    border-radius: 50px; 
+  }
+  div .form-control{
+    @include sizes(400px, 50px, 1px, 5px auto);
+    font-family: Kurale-Regular;
+    padding: 10px;
+  }
+  .cuadro{
+    background-color: $lila;
+    border: map-get($estilos, border1 );
+    align-items: map-get($estilos, center );
+    @include sizes(700px, 500px, 1px, 50px auto);
+  }
+  main{
+    color: map-get($estilos, color);
+    text-align: map-get($estilos, center);
+    font-family: Kurale-Regular;
+  }
+  .productos{
+      display: grid;
+      grid-template-columns: repeat(3, 3fr);
+      grid-template-rows: repeat 4, 2fr;
+      justify-items: center; 
+  }
+  main .imagenes{
+    @include sizes(220px, 200px, 2px, 30px auto);
+    border: map-get($estilos, border )
+  }
+  main .imagenes:hover{
+    transform: scale(1.05, 1.05);
+  }
+  main .imag-sb{
+    @include sizes( 500px, 600px, 10px, 20px auto);
+  }
+  main .cuadro-sb{
+    border: map-get($estilos, border );
+    @include sizes(600px, 780px, 2px, 30px auto);
+  }
+  .container-fluid{
+    ul {
+      list-style: none;
+            li {
+       padding: 20px;
+          display: inline-block;
+         a {
+               text-decoration: none;
+                      font-size: 16px;   		     color: $lila;
+                }
+            .nav-link:hover{
+                color: $rosa;
+            }
+              .dropdown-item:hover{
+                display: block;
+                color: $rosa;
+                    }
+                  }
+           }
+  }
+  .section-1 h1{
+    color: map-get($estilos, color);
+    text-align: map-get($estilos, center);
+    border-radius: map-get($estilos, double);
+    font-family: PathwayGothicOne-Regular ;
+  }
+  .section-2 h2{
+    color: map-get($estilos, color);
+    text-align: map-get($estilos, center);
+  }
+  .section-3 h2{
+    color: map-get($estilos, color);
+    text-align: map-get($estilos, center);
+  }
+  header { grid-area: header;
+    font-family: Kurale-Regular;
+ }
+  .section-1 { 
+    grid-area: section-1;
+    border:map-get($estilos, border);
+    border-radius:map-get($estilos, border-radius);
+    @include sizes(700px, 90px, 1px, 50px auto);
+}
+  .section-2 { 
+    grid-area: section-2;
+    font-family: Kurale-Regular;
+    text-align: map-get($estilos, center);
+    color: map-get($estilos, color);
+}
+  .section-3 { 
+    grid-area: section-3;
+    font-family: Kurale-Regular;
+
+}
+  footer .contact{
+    @include sizes(40px, 40px , 1px, 20px auto );
+  }
+  footer .contact:hover{
+    transform: scale(1.2, 1.2);
+  }
+  footer { 
+    grid-area: footer; 
+    @include flex-row-center; 
+    padding: map-get($estilos, 3rem );
+    font-family: Kurale-Regular;
+    background-color: $lila;
+}
+
+  
